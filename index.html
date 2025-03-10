@@ -7,22 +7,29 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h2>Navigate through the randomly generated maze to reach the goal!</h2>
-      <div class="instructions">
-        🔧
-        <strong
-          >Use keyboard arrow keys (↑ ↓ ← →) to move through the maze.</strong
-        >
-        Reach the green goal to win!
-      </div>
-      <button id="newMazeBtn">🔄 Generate New Maze</button>
-      <div>
+    <main class="container">
+      <header>
+        <h1>🕹️ Maze Adventure Game</h1>
+      </header>
+
+      <section class="instructions">
+        <p>
+          🔧 <strong>Use keyboard arrow keys (↑ ↓ ← →) to move.</strong> <br />
+          Reach the 🥚 egg goal to win!
+        </p>
+      </section>
+
+      <button id="newMazeBtn" aria-label="Generate a new maze">
+        🔄 Generate New Maze
+      </button>
+
+      <article>
         <canvas id="gameCanvas"></canvas>
-      </div>
-    </div>
-    <script src="js/maze.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/game.js"></script>
+      </article>
+    </main>
+
+    <script src="js/maze.js" defer></script>
+    <script src="js/player.js" defer></script>
+    <script src="js/game.js" defer></script>
   </body>
 </html>

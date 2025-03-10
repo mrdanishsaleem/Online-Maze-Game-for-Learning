@@ -3,12 +3,18 @@ const ctx = canvas.getContext("2d");
 canvas.width = 500;
 canvas.height = 500;
 
-let maze, player;
+let maze, player, goalImage;
 
 function newGame() {
   maze = new Maze(25, 25);
   player = new Player();
-  gameLoop(); // Start game loop after initializing maze and player
+
+  goalImage = new Image();
+  goalImage.src = "assets/eggs.png"; // Ensure correct path
+
+  goalImage.onload = () => {
+    gameLoop();
+  };
 }
 
 document.getElementById("newMazeBtn").addEventListener("click", newGame);
@@ -21,7 +27,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") player.move(step, 0, maze);
 
   checkWin();
-  gameLoop(); // Refresh screen after movement
+  gameLoop();
 });
 
 function checkWin() {
@@ -43,15 +49,13 @@ function gameLoop() {
     }
   }
 
-  // Draw goal
-  ctx.fillStyle = "green";
-  ctx.fillRect(maze.exit.x * 20, maze.exit.y * 20, 20, 20);
+  // Draw goal (Eggs)
+  ctx.drawImage(goalImage, maze.exit.x * 20, maze.exit.y * 20, 20, 20);
 
-  // Draw player
+  // Draw player (Angry Bird)
   player.draw(ctx);
 
   requestAnimationFrame(gameLoop);
 }
 
-// Start the game initially
 newGame();

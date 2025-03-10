@@ -1,8 +1,10 @@
 class Player {
   constructor() {
-    this.x = 20; // Start position (aligned with grid)
+    this.x = 20; // Start position
     this.y = 20;
-    this.size = 20; // Size of player matches grid cell size
+    this.size = 20;
+    this.image = new Image();
+    this.image.src = "assets/angry-bird.png"; // Ensure correct path
   }
 
   move(dx, dy, maze) {
@@ -12,7 +14,6 @@ class Player {
     let gridX = Math.floor(newX / this.size);
     let gridY = Math.floor(newY / this.size);
 
-    // Ensure movement is within maze bounds and not into a wall
     if (
       gridY >= 0 &&
       gridY < maze.rows &&
@@ -26,15 +27,6 @@ class Player {
   }
 
   draw(ctx) {
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.arc(
-      this.x + this.size / 2,
-      this.y + this.size / 2,
-      this.size / 2,
-      0,
-      Math.PI * 2
-    );
-    ctx.fill();
+    ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
   }
 }
