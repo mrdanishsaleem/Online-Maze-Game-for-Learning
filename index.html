@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Game</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Navigate through the randomly generated maze to reach the goal!</h2>
+      <div class="instructions">
+        🔧
+        <strong
+          >Use keyboard arrow keys (↑ ↓ ← →) to move through the maze.</strong
+        >
+        Reach the green goal to win!
+      </div>
+      <button id="newMazeBtn">🔄 Generate New Maze</button>
+      <div>
+        <canvas id="gameCanvas"></canvas>
+      </div>
+    </div>
+    <script src="js/maze.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>
